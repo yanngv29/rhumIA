@@ -1,0 +1,603 @@
+openapi: 3.0.0
+info:
+  title: Rhum & Ingredient API
+  description: API for managing Rhums, Cocktail Ingredients, and Recipes.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Local Development Server
+tags:
+  - name: Rhums
+    description: Operations related to Rhum resources
+  - name: Ingredients
+    description: Operations related to Ingredient resources
+  - name: Recipes
+    description: Operations related to Cocktail Recipe resources (e.g., Arranged Rhums)
+
+paths:
+  /rhums:
+    get:
+      summary: Get all Rhums
+      tags:
+        - Rhums
+      operationId: getAllRhums
+      responses:
+        200:
+          description: A list of Rhums
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rhum'
+        500:
+          $ref: '#/components/responses/ServerError'
+    post:
+      summary: Create a new Rhum
+      tags:
+        - Rhums
+      operationId: createRhum
+      requestBody:
+        description: Rhum object to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RhumCreate'
+      responses:
+        201:
+          description: Rhum created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rhum'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/ServerError'
+
+  /rhums/{rhumId}:
+    parameters:
+      - name: rhumId
+        in: path
+        required: true
+        description: ID of the Rhum to retrieve or modify
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get a Rhum by ID
+      tags:
+        - Rhums
+      operationId: getRhumById
+      responses:
+        200:
+          description: Details of a single Rhum
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rhum'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+    put:
+      summary: Update an existing Rhum
+      tags:
+        - Rhums
+      operationId: updateRhum
+      requestBody:
+        description: Rhum object with updated fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RhumCreate' # Reusing the create schema for updates, assuming full replacement
+      responses:
+        200:
+          description: Rhum updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rhum'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+    delete:
+      summary: Delete a Rhum by ID
+      tags:
+        - Rhums
+      operationId: deleteRhum
+      responses:
+        204:
+          description: Rhum deleted successfully (No Content)
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+
+  /ingredients:
+    get:
+      summary: Get all Ingredients
+      tags:
+        - Ingredients
+      operationId: getAllIngredients
+      responses:
+        200:
+          description: A list of Ingredients
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ingredient'
+        500:
+          $ref: '#/components/responses/ServerError'
+    post:
+      summary: Create a new Ingredient
+      tags:
+        - Ingredients
+      operationId: createIngredient
+      requestBody:
+        description: Ingredient object to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngredientCreate'
+      responses:
+        201:
+          description: Ingredient created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ingredient'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/ServerError'
+
+  /ingredients/{ingredientId}:
+    parameters:
+      - name: ingredientId
+        in: path
+        required: true
+        description: ID of the Ingredient to retrieve or modify
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get an Ingredient by ID
+      tags:
+        - Ingredients
+      operationId: getIngredientById
+      responses:
+        200:
+          description: Details of a single Ingredient
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ingredient'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+    put:
+      summary: Update an existing Ingredient
+      tags:
+        - Ingredients
+      operationId: updateIngredient
+      requestBody:
+        description: Ingredient object with updated fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngredientCreate' # Reusing the create schema for updates
+      responses:
+        200:
+          description: Ingredient updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ingredient'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+    delete:
+      summary: Delete an Ingredient by ID
+      tags:
+        - Ingredients
+      operationId: deleteIngredient
+      responses:
+        204:
+          description: Ingredient deleted successfully (No Content)
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+
+  /recipes:
+    get:
+      summary: Get all Recipes
+      tags:
+        - Recipes
+      operationId: getAllRecipes
+      responses:
+        200:
+          description: A list of Recipes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipe'
+        500:
+          $ref: '#/components/responses/ServerError'
+    post:
+      summary: Create a new Recipe
+      tags:
+        - Recipes
+      operationId: createRecipe
+      requestBody:
+        description: Recipe object to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeCreate'
+      responses:
+        201:
+          description: Recipe created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/ServerError'
+
+  /recipes/{recipeId}:
+    parameters:
+      - name: recipeId
+        in: path
+        required: true
+        description: ID of the Recipe to retrieve or modify
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get a Recipe by ID
+      tags:
+        - Recipes
+      operationId: getRecipeById
+      responses:
+        200:
+          description: Details of a single Recipe
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+    put:
+      summary: Update an existing Recipe
+      tags:
+        - Recipes
+      operationId: updateRecipe
+      requestBody:
+        description: Recipe object with updated fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeCreate' # Reusing the create schema for updates
+      responses:
+        200:
+          description: Recipe updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+    delete:
+      summary: Delete a Recipe by ID
+      tags:
+        - Recipes
+      operationId: deleteRecipe
+      responses:
+        204:
+          description: Recipe deleted successfully (No Content)
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+
+components:
+  schemas:
+    Rhum:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - origin
+        - abv
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the Rhum
+          readOnly: true
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          description: Name of the Rhum
+          example: Trois Rivières Cuvée Spéciale
+        type:
+          type: string
+          description: Type of Rhum (e.g., blanc, ambré, vieux, agricole)
+          enum: [blanc, ambré, vieux, agricole, arrangé, spiced]
+          example: agricole
+        origin:
+          type: string
+          description: Country or region of origin
+          example: Martinique
+        abv:
+          type: number
+          format: float
+          description: Alcohol by volume percentage
+          minimum: 0
+          maximum: 100
+          example: 45
+        description:
+          type: string
+          nullable: true
+          description: A brief description of the Rhum
+          example: A classic Martinique agricole rhum, perfect for ti'punch.
+    RhumCreate: # Schema for creating/updating a Rhum (without 'id')
+      type: object
+      required:
+        - name
+        - type
+        - origin
+        - abv
+      properties:
+        name:
+          type: string
+          description: Name of the Rhum
+          example: Trois Rivières Cuvée Spéciale
+        type:
+          type: string
+          description: Type of Rhum (e.g., blanc, ambré, vieux, agricole)
+          enum: [blanc, ambré, vieux, agricole, arrangé, spiced]
+          example: agricole
+        origin:
+          type: string
+          description: Country or region of origin
+          example: Martinique
+        abv:
+          type: number
+          format: float
+          description: Alcohol by volume percentage
+          minimum: 0
+          maximum: 100
+          example: 45
+        description:
+          type: string
+          nullable: true
+          description: A brief description of the Rhum
+          example: A classic Martinique agricole rhum, perfect for ti'punch.
+
+    Ingredient:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - unit
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the Ingredient
+          readOnly: true
+          example: a1b2c3d4-e5f6-7890-1234-567890abcdef
+        name:
+          type: string
+          description: Name of the ingredient (e.g., Lime, Cane Syrup)
+          example: Fresh Lime
+        type:
+          type: string
+          description: Category of the ingredient (e.g., Fruit, Sweetener, Spice, Herb)
+          enum: [Fruit, Sweetener, Spice, Herb, Spirit, Liqueur, Mixer, Garnish]
+          example: Fruit
+        unit:
+          type: string
+          description: Recommended unit for the ingredient (e.g., ml, g, piece)
+          example: piece
+        description:
+          type: string
+          nullable: true
+          description: A brief description or notes on the ingredient
+          example: Key ingredient for a classic Ti'Punch.
+    IngredientCreate: # Schema for creating/updating an Ingredient (without 'id')
+      type: object
+      required:
+        - name
+        - type
+        - unit
+      properties:
+        name:
+          type: string
+          description: Name of the ingredient (e.g., Lime, Cane Syrup)
+          example: Fresh Lime
+        type:
+          type: string
+          description: Category of the ingredient (e.g., Fruit, Sweetener, Spice, Herb)
+          enum: [Fruit, Sweetener, Spice, Herb, Spirit, Liqueur, Mixer, Garnish]
+          example: Fruit
+        unit:
+          type: string
+          description: Recommended unit for the ingredient (e.g., ml, g, piece)
+          example: piece
+        description:
+          type: string
+          nullable: true
+          description: A brief description or notes on the ingredient
+          example: Key ingredient for a classic Ti'Punch.
+
+    RecipeIngredient:
+      type: object
+      required:
+        - ingredientId
+        - quantity
+        - unit
+      properties:
+        ingredientId:
+          type: string
+          format: uuid
+          description: ID of the ingredient used in the recipe
+          example: a1b2c3d4-e5f6-7890-1234-567890abcdef
+        quantity:
+          type: number
+          format: float
+          description: Amount of the ingredient
+          minimum: 0
+          example: 2
+        unit:
+          type: string
+          description: Unit of measurement for the quantity (e.g., ml, g, piece, dash)
+          example: pieces
+
+    Recipe:
+      type: object
+      required:
+        - id
+        - name
+        - rhumId
+        - ingredients
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the Recipe
+          readOnly: true
+          example: e987f654-d321-abcd-9876-ef1234567890
+        name:
+          type: string
+          description: Name of the recipe (e.g., Rhum arrangé Vanille)
+          example: Rhum arrangé Vanille Passion
+        description:
+          type: string
+          nullable: true
+          description: A detailed description of the recipe and preparation
+          example: A delightful arranged rhum with vanilla pods and passion fruit.
+        rhumId:
+          type: string
+          format: uuid
+          description: ID of the Rhum used as the base for this recipe
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        ingredients:
+          type: array
+          description: List of ingredients and their quantities for the recipe
+          items:
+            $ref: '#/components/schemas/RecipeIngredient'
+        preparationTimeMinutes:
+          type: integer
+          description: Estimated time to prepare the recipe in minutes
+          minimum: 0
+          example: 15
+        agingTimeDays:
+          type: integer
+          description: Recommended aging time for the arranged rhum in days
+          minimum: 0
+          example: 90
+
+    RecipeCreate: # Schema for creating/updating a Recipe (without 'id')
+      type: object
+      required:
+        - name
+        - rhumId
+        - ingredients
+      properties:
+        name:
+          type: string
+          description: Name of the recipe (e.g., Rhum arrangé Vanille)
+          example: Rhum arrangé Vanille Passion
+        description:
+          type: string
+          nullable: true
+          description: A detailed description of the recipe and preparation
+          example: A delightful arranged rhum with vanilla pods and passion fruit.
+        rhumId:
+          type: string
+          format: uuid
+          description: ID of the Rhum used as the base for this recipe
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        ingredients:
+          type: array
+          description: List of ingredients and their quantities for the recipe
+          items:
+            $ref: '#/components/schemas/RecipeIngredient'
+        preparationTimeMinutes:
+          type: integer
+          description: Estimated time to prepare the recipe in minutes
+          minimum: 0
+          example: 15
+        agingTimeDays:
+          type: integer
+          description: Recommended aging time for the arranged rhum in days
+          minimum: 0
+          example: 90
+
+  responses:
+    BadRequest:
+      description: Invalid request payload or parameters.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Invalid input provided"
+              errors:
+                type: array
+                items:
+                  type: string
+                  example: "name is required"
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Resource with ID 123 not found"
+    ServerError:
+      description: An unexpected server error occurred.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "An internal server error occurred"

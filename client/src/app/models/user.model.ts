@@ -1,12 +1,12 @@
 export interface User {
   id?: string;
-  username: string;
+  username: string;  // This is the field used in the frontend
   email: string;
   token?: string;
 }
 
 export interface UserRegister {
-  username: string;
+  name: string;  // This matches what the backend expects
   email: string;
   password: string;
 }

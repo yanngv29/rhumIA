@@ -26,15 +26,20 @@ export class AuthService {
   }
 
   register(user: UserRegister): Observable<User> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, user)
+    return this.http.post<any>(`${this.apiUrl}/register`, user)
       .pipe(
         map(response => {
-          // Store user details and jwt token in local storage to keep user logged in
-          const user = response.user;
-          user.token = response.token;
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-          return user;
+          // Create user object from registration data and token
+          const loggedInUser: User = {
+            username: user.name,  // Map name (sent to backend) to username (used in frontend)
+            email: user.email,
+            token: response.token
+          };
+          
+          // Store user details and jwt token in local storage
+          localStorage.setItem('currentUser', JSON.stringify(loggedInUser));
+          this.currentUserSubject.next(loggedInUser);
+          return loggedInUser;
         }),
         catchError(error => {
           return throwError(() => error);
@@ -43,15 +48,20 @@ export class AuthService {
   }
 
   login(credentials: UserLogin): Observable<User> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credentials)
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
       .pipe(
         map(response => {
-          // Store user details and jwt token in local storage to keep user logged in
-          const user = response.user;
-          user.token = response.token;
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-          return user;
+          // Create user object from login data and token
+          const loggedInUser: User = {
+            username: '',  // We don't have the username from login, could fetch from /me endpoint
+            email: credentials.email,
+            token: response.token
+          };
+          
+          // Store user details and jwt token in local storage
+          localStorage.setItem('currentUser', JSON.stringify(loggedInUser));
+          this.currentUserSubject.next(loggedInUser);
+          return loggedInUser;
         }),
         catchError(error => {
           return throwError(() => error);

@@ -47,18 +47,23 @@ export class RegisterComponent implements OnInit {
 
     this.loading = true;
     this.authService.register({
-      username: this.f['username'].value,
+      name: this.f['username'].value,  // Changed from username to name to match backend
       email: this.f['email'].value,
       password: this.f['password'].value
     })
       .pipe(first())
       .subscribe({
         next: () => {
-          // Navigate to home page after successful registration
-          this.router.navigate(['/']);
+          this.router.navigate(['/login'], { 
+            queryParams: { registered: 'success' } 
+          });
         },
         error: error => {
+          console.log(error);
           this.error = error.error?.message || 'Registration failed';
+          if (error.error?.errors && error.error.errors.length > 0) {
+            this.error = error.error.errors.join(', ');
+          }
           this.loading = false;
         }
       });

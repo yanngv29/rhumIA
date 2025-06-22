@@ -1,0 +1,48 @@
+<div class="jumbotron bg-light p-5 rounded">
+  <h1 class="display-4">Welcome to RhumIA</h1>
+  <p class="lead">Your ultimate platform for exploring and sharing rhum recipes and experiences.</p>
+  <hr class="my-4">
+  <p>Discover premium rhums, create your own recipes, and connect with other enthusiasts.</p>
+  
+  <div *ngIf="!isLoggedIn" class="mt-4">
+    <a routerLink="/login" class="btn btn-primary me-2">Login</a>
+    <a routerLink="/register" class="btn btn-outline-primary">Register</a>
+  </div>
+  
+  <div *ngIf="isLoggedIn" class="mt-4">
+    <a routerLink="/rhums" class="btn btn-primary me-2">Explore Rhums</a>
+    <a routerLink="/recipes" class="btn btn-outline-primary">View Recipes</a>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <i class="fas fa-glass-whiskey fa-3x mb-3 text-primary"></i>
+        <h5 class="card-title">Premium Rhum Selection</h5>
+        <p class="card-text">Explore our curated collection of the finest rhums from around the world.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <i class="fas fa-cocktail fa-3x mb-3 text-primary"></i>
+        <h5 class="card-title">Creative Recipes</h5>
+        <p class="card-text">Discover and share innovative rhum cocktail recipes and arrangements.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+        <h5 class="card-title">Community</h5>
+        <p class="card-text">Connect with fellow rhum enthusiasts and share your experiences.</p>
+      </div>
+    </div>
+  </div>
+</div>

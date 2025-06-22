@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary {
+  background-color: #6c4a32;
+  border-color: #6c4a32;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #5a3d2a !important;
+  border-color: #5a3d2a !important;
+}
+
+.btn-outline-primary {
+  color: #6c4a32;
+  border-color: #6c4a32;
+}
+
+.btn-outline-primary:hover {
+  background-color: #6c4a32;
+  border-color: #6c4a32;
+}
+
+.text-primary {
+  color: #6c4a32 !important;
+}
+
+.bg-primary {
+  background-color: #6c4a32 !important;
+}
+
+.form-control:focus {
+  border-color: #6c4a32;
+  box-shadow: 0 0 0 0.25rem rgba(108, 74, 50, 0.25);
+}

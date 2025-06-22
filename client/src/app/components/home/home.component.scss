@@ -1,0 +1,23 @@
+.jumbotron {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  transition: transform 0.3s;
+  margin-bottom: 1.5rem;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+.text-primary {
+  color: #6c4a32 !important;
+}

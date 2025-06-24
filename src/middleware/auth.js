@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Token = require('../models/Token');
 
 // Protect routes
 exports.protect = async (req, res, next) => {
@@ -22,6 +23,14 @@ exports.protect = async (req, res, next) => {
   }
   
   try {
+    
+    // Check if token exists in database
+    const dbToken = await Token.findOne({ token });
+    
+    if (!dbToken) {
+      return res.status(401).json({ message: 'Not authorized to access this route' });
+    }
+
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     

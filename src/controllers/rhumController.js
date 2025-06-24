@@ -1,4 +1,5 @@
 const Rhum = require('../models/Rhum');
+const logger = require('../utils/logger'); // Import logger
 
 // Get all rhums
 exports.getAllRhums = async (req, res) => {
@@ -6,6 +7,7 @@ exports.getAllRhums = async (req, res) => {
     const rhums = await Rhum.find();
     res.status(200).json(rhums);
   } catch (error) {
+    logger.error(`Error in getAllRhums: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -19,6 +21,7 @@ exports.getRhumById = async (req, res) => {
     }
     res.status(200).json(rhum);
   } catch (error) {
+    logger.error(`Error in getRhumById: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -33,6 +36,7 @@ exports.createRhum = async (req, res) => {
       const messages = Object.values(error.errors).map(val => val.message);
       return res.status(400).json({ message: 'Invalid input provided', errors: messages });
     }
+    logger.error(`Error in createRhum: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -55,6 +59,7 @@ exports.updateRhum = async (req, res) => {
       const messages = Object.values(error.errors).map(val => val.message);
       return res.status(400).json({ message: 'Invalid input provided', errors: messages });
     }
+    logger.error(`Error in updateRhum: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -70,6 +75,7 @@ exports.deleteRhum = async (req, res) => {
     
     res.status(204).send();
   } catch (error) {
+    logger.error(`Error in deleteRhum: ${error.message}`);    
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };

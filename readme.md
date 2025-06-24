@@ -62,6 +62,19 @@ const swaggerDocument = YAML.load('./swagger.yaml');
 15. you answer is not correct because the front User type has no name field but a username field.
 correct it
 
+16. add logger for the back and log all 500 res status in this file
+
+17. extract the logger from app.js into a file, so the logger can be used in all the other files.
+( i have added the proposition on all files.)
+
+18. Remove cookie express middleware. 
+Add a token model and Save the token in the database.
+Check if the token exist in db during the auth middleware.
+
+19. using Angular, create a user profile component, and add routing to /profile
+
+20. 
+
 
 
 ## How to Build and Run the Application

@@ -1,4 +1,5 @@
 const Recipe = require('../models/Recipe');
+const logger = require('../utils/logger'); // Import logger
 
 // Get all recipes
 exports.getAllRecipes = async (req, res) => {
@@ -8,6 +9,7 @@ exports.getAllRecipes = async (req, res) => {
       .populate('ingredients.ingredientId');
     res.status(200).json(recipes);
   } catch (error) {
+    logger.error(`Error in getAllRecipes: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -25,6 +27,7 @@ exports.getRecipeById = async (req, res) => {
     
     res.status(200).json(recipe);
   } catch (error) {
+    logger.error(`Error in getRecipeById: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -43,6 +46,7 @@ exports.createRecipe = async (req, res) => {
       const messages = Object.values(error.errors).map(val => val.message);
       return res.status(400).json({ message: 'Invalid input provided', errors: messages });
     }
+    logger.error(`Error in createRecipe: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -67,6 +71,7 @@ exports.updateRecipe = async (req, res) => {
       const messages = Object.values(error.errors).map(val => val.message);
       return res.status(400).json({ message: 'Invalid input provided', errors: messages });
     }
+    logger.error(`Error in updateRecipe: ${error.message}`);    
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -82,6 +87,7 @@ exports.deleteRecipe = async (req, res) => {
     
     res.status(204).send();
   } catch (error) {
+    logger.error(`Error in deleteRecipe: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };

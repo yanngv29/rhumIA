@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
+const logger = require('./utils/logger'); // Import logger
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const connectDB = require('./config/database');
@@ -15,6 +16,7 @@ dotenv.config();
 
 // Connect to database
 connectDB();
+
 
 // Route files
 const authRoutes = require('./routes/authRoutes');
@@ -39,7 +41,7 @@ app.use(cookieParser());
 app.use(cors());
 
 // Logging
-app.use(morgan('dev'));
+app.use(morgan('dev', { stream: { write: message => logger.info(message.trim()) } }));
 
 // Security headers
 app.use(helmet());
@@ -52,6 +54,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/rhums', rhumRoutes);
 app.use('/api/v1/ingredients', ingredientRoutes);
 app.use('/api/v1/recipes', recipeRoutes);
+
 
 // Swagger API Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -74,7 +77,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  logger.error(`Error: ${err.message}`);
   res.status(500).json({
     message: 'An internal server error occurred',
     error: process.env.NODE_ENV === 'production' ? {} : err.message

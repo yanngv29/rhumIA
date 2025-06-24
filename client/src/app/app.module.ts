@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -13,6 +14,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: 'register', component: RegisterComponent },
   // Add more routes as needed
   { path: '**', redirectTo: '' }
@@ -23,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

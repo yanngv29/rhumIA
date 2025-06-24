@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const logger = require('../utils/logger'); // Import logger
 
 // Register a new user
 exports.register = async (req, res) => {
@@ -27,6 +28,7 @@ exports.register = async (req, res) => {
       const messages = Object.values(error.errors).map(val => val.message);
       return res.status(400).json({ message: 'Invalid input provided', errors: messages });
     }
+    logger.error(`Error in register: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -58,6 +60,7 @@ exports.login = async (req, res) => {
     
     sendTokenResponse(user, 200, res);
   } catch (error) {
+    logger.error(`Error in login: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
@@ -68,16 +71,13 @@ exports.getMe = async (req, res) => {
     const user = await User.findById(req.user.id);
     res.status(200).json(user);
   } catch (error) {
+    logger.error(`Error in getMe: ${error.message}`);
     res.status(500).json({ message: 'An internal server error occurred', error: error.message });
   }
 };
 
 // Log user out / clear cookie
 exports.logout = async (req, res) => {
-  res.cookie('token', 'none', {
-    expires: new Date(Date.now() + 10 * 1000),
-    httpOnly: true
-  });
   
   res.status(200).json({ success: true, data: {} });
 };
@@ -87,10 +87,6 @@ const sendTokenResponse = (user, statusCode, res) => {
   // Create token
   const token = user.getSignedJwtToken();
   
-  const options = {
-    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
-    httpOnly: true
-  };
   
   if (process.env.NODE_ENV === 'production') {
     options.secure = true;
@@ -98,7 +94,6 @@ const sendTokenResponse = (user, statusCode, res) => {
   
   res
     .status(statusCode)
-    .cookie('token', token, options)
     .json({
       success: true,
       token

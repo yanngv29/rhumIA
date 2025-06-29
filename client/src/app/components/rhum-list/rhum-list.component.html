@@ -1,0 +1,36 @@
+<div class="rhum-list-container">
+  <div class="header">
+    <h1>Rum Collection</h1>
+    <p>Discover our selection of premium rums from around the world</p>
+  </div>
+
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && rhums.length === 0" class="no-rhums">
+    <p>No rums available at the moment.</p>
+  </div>
+
+  <div *ngIf="!loading && rhums.length > 0" class="rhum-grid">
+    <div *ngFor="let rhum of rhums" class="rhum-card">
+      <div class="rhum-image">
+        <img [src]="rhum.imageUrl || 'assets/images/default-rum.png'" [alt]="rhum.name">
+      </div>
+      <div class="rhum-details">
+        <h3>{{ rhum.name }}</h3>
+        <p class="origin">Origin: {{ rhum.origin }}</p>
+        <p *ngIf="rhum.age" class="age">Age: {{ rhum.age }} years</p>
+        <p class="alcohol">{{ rhum.alcoholPercentage || rhum.abv }}% ABV</p>
+        <p class="description">{{ rhum.description || 'No description available' }}</p>
+        <p *ngIf="rhum.price" class="price">${{ rhum.price.toFixed(2) }}</p>
+      </div>
+    </div>
+  </div>
+</div>

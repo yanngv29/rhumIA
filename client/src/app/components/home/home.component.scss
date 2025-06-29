@@ -21,3 +21,95 @@
 .text-primary {
   color: #6c4a32 !important;
 }
+
+.home-container {
+  .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/RumAndIA.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .lead {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+  }
+  
+  .featured-section, .about-section {
+    padding: 80px 0;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+    }
+  }
+  
+  .featured-section {
+    background-color: #f8f9fa;
+  }
+  
+  .rhum-card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .rhum-image {
+      height: 200px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    .card-title {
+      font-weight: bold;
+    }
+    
+    .origin, .type, .abv {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .description {
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      color: #444;
+    }
+  }
+  
+  .about-section {
+    background-color: white;
+    
+    p {
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+  }
+}

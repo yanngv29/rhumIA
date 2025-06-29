@@ -25,6 +25,30 @@ const RhumSchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true
+  },
+  imageUrl: {
+    type: String,
+    trim: true,
+    default: null
+  },
+  // New fields
+  age: {
+    type: Number,
+    min: 0,
+    default: null
+  },
+  alcoholPercentage: {
+    type: Number,
+    min: 0,
+    max: 100,
+    default: function() {
+      return this.abv; // Default to abv if not specified
+    }
+  },
+  price: {
+    type: Number,
+    min: 0,
+    default: null
   }
 }, {
   timestamps: true

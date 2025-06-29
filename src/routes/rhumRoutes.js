@@ -5,9 +5,13 @@ const {
   getRhumById, 
   createRhum, 
   updateRhum, 
-  deleteRhum 
+  deleteRhum,
+  getRandomRhums
 } = require('../controllers/rhumController');
 const { protect, authorize } = require('../middleware/auth');
+
+// Add the random rhums endpoint - make it public by removing the protect middleware
+router.get('/random', getRandomRhums);
 
 router.route('/')
   .get(protect, getAllRhums)
@@ -16,6 +20,6 @@ router.route('/')
 router.route('/:rhumId')
   .get(protect, getRhumById)
   .put(protect, updateRhum)
-  .delete(protect, authorize('admin'), deleteRhum);
+  .delete(protect, deleteRhum);
 
 module.exports = router;

@@ -73,7 +73,47 @@ Check if the token exist in db during the auth middleware.
 
 19. using Angular, create a user profile component, and add routing to /profile
 
-20. 
+20. the component user-profile mus be only read-only. User cannot modify username or Email.
+
+21. add routing from /rhums to the rhum-list component
+
+22. what you have done is good but it's missing 2 interceptor : 
+ Cannot find module './interceptors/jwt.interceptor' or its corresponding type declarations.
+[1] 
+[1] 14 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+Cannot find module './interceptors/error.interceptor' or its corresponding type declarations.
+[1] 
+[1] 15 import { ErrorInterceptor } from './interceptors/error.interceptor';
+
+23. jwt.interceptor is the same as auth.interceptor. Replace jwt.interceptor by auth.interceptor.
+And create the guards/auth.guard imported if app-routing.module.ts
+
+24. when login or register , front app must store the provided token.
+Then when calling api like rhums api, you must provide the token as a bearer token to authentify the logged user.
+
+24.bis.  When calling api like rhums api, you must provide the token as a bearer token to authentify the logged user.
+
+25. in the back authController, you must store the token, in the database, when login or register. The  Token model is allready existing for that.
+
+26. create a assets/images/default-rum.jpg image
+
+27. add pagination to getAllRhums API,
+modify rhum model by adding an image Url,
+then add a endpoint to retrieve 3 randoms rhums.
+
+28.the new random endpoint must not be protected.
+the new random endpoint must be used in the client home page, to display some rhums
+
+29. in the back and client model for rhums, add age, alcoholPercentage,price
+
+30. correct all apiUrl variable where you have ${environment.apiUrl}/api/XXXXX with XXXX = rhum, ingregient, ...   To be : 
+ ${environment.apiUrl}/XXXXX
+
+31. change all assets/images/default-rum.jpg to be assets/images/default-rum.png
+
+
+32. 
+
 
 
 

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Clément VSOP",
+    "type": "vieux",
+    "origin": "Martinique",
+    "abv": 40,
+    "alcoholPercentage": 40,
+    "age": 4,
+    "price": 39.99,
+    "description": "A premium aged rhum agricole from Martinique with notes of vanilla, spice, and tropical fruits."
+  },
+  {
+    "name": "Diplomatico Reserva Exclusiva",
+    "type": "ambré",
+    "origin": "Venezuela",
+    "abv": 40,
+    "alcoholPercentage": 40,
+    "age": 12,
+    "price": 45.99,
+    "description": "A rich and sweet rum with flavors of caramel, orange peel, and cinnamon."
+  },
+  {
+    "name": "J.M Blanc",
+    "type": "blanc",
+    "origin": "Martinique",
+    "abv": 50,
+    "alcoholPercentage": 50,
+    "age": 0,
+    "price": 29.99,
+    "description": "An unaged rhum agricole with grassy, floral notes and a clean finish."
+  },
+  {
+    "name": "Appleton Estate 12 Year",
+    "type": "vieux",
+    "origin": "Jamaica",
+    "abv": 43,
+    "alcoholPercentage": 43,
+    "age": 12,
+    "price": 42.99,
+    "description": "A well-balanced aged rum with notes of oak, vanilla, and orange zest."
+  },
+  {
+    "name": "Trois Rivières Blanc",
+    "type": "agricole",
+    "origin": "Martinique",
+    "abv": 50,
+    "alcoholPercentage": 50,
+    "age": 0,
+    "price": 32.99,
+    "description": "A vibrant agricole rhum with notes of sugarcane, citrus, and herbs."
+  },
+  {
+    "name": "Kraken Black Spiced",
+    "type": "spiced",
+    "origin": "Caribbean Blend",
+    "abv": 40,
+    "alcoholPercentage": 40,
+    "age": 2,
+    "price": 24.99,
+    "description": "A dark spiced rum with notes of cinnamon, clove, and vanilla."
+  },
+  {
+    "name": "Plantation Pineapple",
+    "type": "arrangé",
+    "origin": "Barbados",
+    "abv": 40,
+    "alcoholPercentage": 40,
+    "age": 3,
+    "price": 34.99,
+    "description": "A flavored rum infused with Victoria pineapple rinds and flesh."
+  },
+  {
+    "name": "Havana Club 7 Year",
+    "type": "vieux",
+    "origin": "Cuba",
+    "abv": 40,
+    "alcoholPercentage": 40,
+    "age": 7,
+    "price": 29.99,
+    "description": "A smooth aged rum with notes of tropical fruit, vanilla, and tobacco."
+  },
+  {
+    "name": "Neisson Blanc",
+    "type": "blanc",
+    "origin": "Martinique",
+    "abv": 55,
+    "alcoholPercentage": 55,
+    "age": 0,
+    "price": 36.99,
+    "description": "A high-proof white rhum agricole with intense grassy and floral notes."
+  },
+  {
+    "name": "El Dorado 15 Year",
+    "type": "vieux",
+    "origin": "Guyana",
+    "abv": 43,
+    "alcoholPercentage": 43,
+    "age": 15,
+    "price": 59.99,
+    "description": "A premium aged rum with rich notes of dark chocolate, toffee, and dried fruits."
+  },
+  {
+    "name": "Chairman's Reserve Spiced",
+    "type": "spiced",
+    "origin": "Saint Lucia",
+    "abv": 40,
+    "alcoholPercentage": 40,
+    "age": 5,
+    "price": 27.99,
+    "description": "A spiced rum with notes of cinnamon, nutmeg, and local spices."
+  },
+  {
+    "name": "Rhum Barbancourt 8 Year",
+    "type": "vieux",
+    "origin": "Haiti",
+    "abv": 43,
+    "alcoholPercentage": 43,
+    "age": 8,
+    "price": 32.99,
+    "description": "An aged rhum agricole with notes of oak, vanilla, and tropical fruits."
+  }
+]

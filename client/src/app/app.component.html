@@ -12,7 +12,7 @@
           <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
         <li class="nav-item" *ngIf="currentUser">
-          <a class="nav-link" routerLink="/rhums" routerLinkActive="active">Rhums</a>
+          <a class="nav-link" routerLink="/rhums" routerLinkActive="active">Rum Collection</a>
         </li>
         <li class="nav-item" *ngIf="currentUser">
           <a class="nav-link" routerLink="/recipes" routerLinkActive="active">Recipes</a>
@@ -25,7 +25,7 @@
         <li class="nav-item" *ngIf="!currentUser">
           <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="currentUser">
+        <li class="nav-item" *ngIf="currentUser">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
             <i class="fas fa-user me-1"></i>{{ currentUser.username }}
           </a>

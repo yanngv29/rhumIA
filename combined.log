@@ -8,3 +8,90 @@
 2025-06-23T20:36:08.377Z info: [0mPOST /api/v1/auth/login [32m200[0m 56.879 ms - 216[0m
 2025-06-24T19:04:12.810Z info: [0mGET /api/v1/auth/logout [32m200[0m 2.252 ms - 26[0m
 2025-06-24T19:04:23.463Z info: [0mPOST /api/v1/auth/login [32m200[0m 73.245 ms - 216[0m
+2025-06-25T19:23:22.627Z info: [0mPOST /api/v1/auth/login [32m200[0m 106.119 ms - 216[0m
+2025-06-25T20:07:24.438Z info: [0mGET /api/v1/rhums [33m401[0m 11.420 ms - 49[0m
+2025-06-25T20:07:24.448Z info: [0mGET /api/v1/auth/logout [36m304[0m 0.399 ms - -[0m
+2025-06-25T20:07:27.225Z info: [0mPOST /api/v1/auth/login [32m200[0m 97.549 ms - 216[0m
+2025-06-25T20:07:27.244Z info: [0mGET /api/v1/rhums [33m401[0m 4.330 ms - 49[0m
+2025-06-25T20:07:27.247Z info: [0mGET /api/v1/auth/logout [36m304[0m 0.310 ms - -[0m
+2025-06-25T20:07:30.182Z info: [0mPOST /api/v1/auth/login [32m200[0m 80.481 ms - 216[0m
+2025-06-25T20:07:30.201Z info: [0mGET /api/v1/rhums [33m401[0m 3.253 ms - 49[0m
+2025-06-25T20:07:30.204Z info: [0mGET /api/v1/auth/logout [36m304[0m 0.151 ms - -[0m
+2025-06-25T20:07:56.840Z info: [0mPOST /api/v1/auth/register [33m400[0m 4.342 ms - 70[0m
+2025-06-25T20:08:04.288Z info: [0mPOST /api/v1/auth/register [32m201[0m 143.251 ms - 216[0m
+2025-06-25T20:08:11.995Z info: [0mGET /api/v1/rhums [33m401[0m 7.507 ms - 49[0m
+2025-06-25T20:08:12.000Z info: [0mGET /api/v1/auth/logout [36m304[0m 0.277 ms - -[0m
+2025-06-25T20:18:55.896Z info: [0mPOST /api/v1/auth/login [33m401[0m 7.343 ms - 33[0m
+2025-06-25T20:18:55.901Z info: [0mGET /api/v1/auth/logout [36m304[0m 0.349 ms - -[0m
+2025-06-25T20:19:09.641Z info: [0mPOST /api/v1/auth/register [33m400[0m 2.714 ms - 70[0m
+2025-06-25T20:19:20.487Z info: [0mPOST /api/v1/auth/login [32m200[0m 101.491 ms - 216[0m
+2025-06-25T20:19:35.553Z info: [0mGET /api/v1/rhums [33m401[0m 4.179 ms - 49[0m
+2025-06-25T20:19:35.558Z info: [0mGET /api/v1/auth/logout [36m304[0m 0.479 ms - -[0m
+2025-06-25T20:24:42.062Z info: [0mPOST /api/v1/auth/login [32m200[0m 111.175 ms - 216[0m
+2025-06-25T20:24:42.108Z info: [0mGET /api/v1/rhums [33m401[0m 1.841 ms - 49[0m
+2025-06-25T20:24:42.119Z info: [0mGET /api/v1/auth/logout [32m200[0m 0.682 ms - 26[0m
+2025-06-25T20:25:09.816Z info: [0mPOST /api/v1/auth/login [32m200[0m 105.925 ms - 216[0m
+2025-06-25T20:25:19.842Z info: [0mGET /api/v1/rhums [33m401[0m 2.869 ms - 49[0m
+2025-06-25T20:25:19.854Z info: [0mGET /api/v1/auth/logout [32m200[0m 0.570 ms - 26[0m
+2025-06-25T20:53:01.441Z info: [0mPOST /api/v1/auth/login [32m200[0m 126.644 ms - 216[0m
+2025-06-25T20:53:01.501Z info: [0mGET /api/v1/rhums [33m401[0m 16.046 ms - 49[0m
+2025-06-25T20:53:01.510Z info: [0mPOST /api/v1/auth/logout [33m404[0m 2.083 ms - 158[0m
+2025-06-25T20:53:16.463Z info: [0mPOST /api/v1/auth/login [32m200[0m 93.745 ms - 216[0m
+2025-06-25T20:53:48.389Z info: [0mGET /api/v1/rhums [33m401[0m 2.632 ms - 49[0m
+2025-06-25T20:53:48.396Z info: [0mPOST /api/v1/auth/logout [33m404[0m 0.316 ms - 158[0m
+2025-06-26T18:02:57.758Z info: [0mGET /ngsw-worker.js [33m404[0m 3.224 ms - 153[0m
+2025-06-26T18:03:01.008Z info: [0mGET /ngsw.json?ngsw-cache-bust=0.6950762924066376 [33m404[0m 1.056 ms - 148[0m
+2025-06-26T18:03:01.028Z info: [0mGET /ngsw.json?ngsw-cache-bust=0.2814006143895126 [33m404[0m 0.407 ms - 148[0m
+2025-06-26T18:03:12.895Z info: [0mGET / [32m200[0m 2.781 ms - 17[0m
+2025-06-26T18:03:14.511Z info: [0mGET /landing [33m404[0m 1.071 ms - 146[0m
+2025-06-26T18:03:17.212Z info: [0mGET / [36m304[0m 0.623 ms - -[0m
+2025-06-26T18:03:17.570Z info: [0mGET /favicon.ico [33m404[0m 0.612 ms - 150[0m
+2025-06-26T18:03:19.999Z info: [0mGET / [32m200[0m 0.390 ms - 17[0m
+2025-06-26T18:03:20.017Z info: [0mGET /favicon.ico [33m404[0m 0.985 ms - 150[0m
+2025-06-26T18:04:11.398Z info: [0mPOST /api/v1/auth/login [32m200[0m 116.042 ms - 216[0m
+2025-06-26T18:04:15.353Z info: [0mGET /api/v1/rhums [32m200[0m 23.068 ms - 2[0m
+2025-06-29T04:18:59.151Z info: [0mGET / [36m304[0m 4.160 ms - -[0m
+2025-06-29T04:19:00.160Z info: [0mGET /favicon.ico [33m404[0m 2.736 ms - 150[0m
+2025-06-29T04:21:16.575Z info: [0mGET /api/v1/rhums [36m304[0m 27.197 ms - -[0m
+2025-06-29T04:32:07.623Z info: [0mGET /api/v1/rhums [32m200[0m 15.329 ms - 2[0m
+2025-06-29T04:33:02.203Z info: [0mGET /api/v1/rhums [36m304[0m 15.851 ms - -[0m
+2025-06-29T04:34:51.632Z info: Retrieved 0 rhums from the database
+2025-06-29T04:34:51.634Z info: [0mGET /api/v1/rhums [32m200[0m 22.921 ms - 2[0m
+2025-06-29T04:35:57.005Z info: Retrieved 12 rhums from the database
+2025-06-29T04:35:57.018Z info: [0mGET /api/v1/rhums [32m200[0m 19.068 ms - -[0m
+2025-06-29T04:52:42.915Z info: Retrieved 12 rhums from the database
+2025-06-29T04:52:42.919Z info: [0mGET /api/v1/rhums [32m200[0m 15.697 ms - -[0m
+2025-06-29T08:30:59.641Z info: [0mGET /api/v1/api/rhums?page=1&limit=10 [33m404[0m 8.046 ms - 155[0m
+2025-06-29T08:31:09.945Z info: [0mGET /api/v1/api/rhums?page=1&limit=10 [33m404[0m 2.206 ms - 155[0m
+2025-06-29T08:31:20.707Z info: [0mGET /api/v1/api/rhums/random?count=3 [33m404[0m 3.302 ms - 162[0m
+2025-06-29T08:31:40.259Z info: [0mGET /api/v1/api/rhums/random?count=3 [33m404[0m 1.596 ms - 162[0m
+2025-06-29T08:31:41.654Z info: [0mGET /api/v1/api/rhums/random?count=3 [33m404[0m 2.766 ms - 162[0m
+2025-06-29T08:31:53.809Z info: [0mGET /api/v1/api/rhums?page=1&limit=10 [33m404[0m 1.427 ms - 155[0m
+2025-06-29T08:42:13.569Z info: [0mGET /api/v1/api/rhums?page=1&limit=10 [33m404[0m 2.653 ms - 155[0m
+2025-06-29T09:20:58.478Z info: Fetching all rhums from the database
+2025-06-29T09:20:58.499Z info: getting all rhums with pagination : OK
+2025-06-29T09:20:58.586Z info: Retrieved 10 rhums from the database (page 1, limit 10)
+2025-06-29T09:20:58.592Z info: [0mGET /api/v1/rhums?page=1&limit=10 [32m200[0m 156.573 ms - -[0m
+2025-06-29T09:21:12.322Z info: Fetching all rhums from the database
+2025-06-29T09:21:12.325Z info: getting all rhums with pagination : OK
+2025-06-29T09:21:12.326Z info: Retrieved 10 rhums from the database (page 1, limit 10)
+2025-06-29T09:21:12.327Z info: [0mGET /api/v1/rhums?page=1&limit=10 [32m200[0m 17.038 ms - -[0m
+2025-06-29T09:24:46.469Z info: Fetching all rhums from the database
+2025-06-29T09:24:46.472Z info: getting all rhums with pagination : OK
+2025-06-29T09:24:46.473Z info: Retrieved 10 rhums from the database (page 1, limit 10)
+2025-06-29T09:24:46.474Z info: [0mGET /api/v1/rhums?page=1&limit=10 [32m200[0m 22.120 ms - -[0m
+2025-06-29T09:24:51.956Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:24:51.958Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 14.568 ms - 638[0m
+2025-06-29T09:25:48.731Z info: [0mPOST /api/v1/auth/logout [33m404[0m 1.166 ms - 158[0m
+2025-06-29T09:25:51.814Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:25:51.815Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 4.989 ms - 618[0m
+2025-06-29T09:29:38.853Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:29:38.854Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 4.057 ms - 615[0m
+2025-06-29T09:29:48.277Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:29:48.280Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 4.048 ms - 639[0m
+2025-06-29T09:30:04.595Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:30:04.595Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 8.270 ms - 613[0m
+2025-06-29T09:30:05.005Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:30:05.007Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 4.889 ms - 628[0m
+2025-06-29T09:42:58.170Z info: Retrieved 3 random rhums from the database
+2025-06-29T09:42:58.171Z info: [0mGET /api/v1/rhums/random?count=3 [32m200[0m 19.796 ms - 609[0m

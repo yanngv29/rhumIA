@@ -1,48 +1,61 @@
-<div class="jumbotron bg-light p-5 rounded">
-  <h1 class="display-4">Welcome to RhumIA</h1>
-  <p class="lead">Your ultimate platform for exploring and sharing rhum recipes and experiences.</p>
-  <hr class="my-4">
-  <p>Discover premium rhums, create your own recipes, and connect with other enthusiasts.</p>
-  
-  <div *ngIf="!isLoggedIn" class="mt-4">
-    <a routerLink="/login" class="btn btn-primary me-2">Login</a>
-    <a routerLink="/register" class="btn btn-outline-primary">Register</a>
+<div class="home-container">
+  <div class="hero-section">
+    <div class="container">
+      <h1>Welcome to RhumIA</h1>
+      <p class="lead">Discover the finest selection of rums from around the world</p>
+      <div class="cta-buttons">
+        <a routerLink="/register" class="btn btn-primary me-3">Sign Up</a>
+        <a routerLink="/login" class="btn btn-outline-light">Login</a>
+      </div>
+    </div>
   </div>
-  
-  <div *ngIf="isLoggedIn" class="mt-4">
-    <a routerLink="/rhums" class="btn btn-primary me-2">Explore Rhums</a>
-    <a routerLink="/recipes" class="btn btn-outline-primary">View Recipes</a>
-  </div>
-</div>
 
-<div class="row mt-5">
-  <div class="col-md-4 mb-4">
-    <div class="card h-100">
-      <div class="card-body text-center">
-        <i class="fas fa-glass-whiskey fa-3x mb-3 text-primary"></i>
-        <h5 class="card-title">Premium Rhum Selection</h5>
-        <p class="card-text">Explore our curated collection of the finest rhums from around the world.</p>
+  <div class="featured-section">
+    <div class="container">
+      <h2 class="section-title">Featured Rums</h2>
+      <p class="section-subtitle">Discover our selection of premium rums</p>
+
+      <div *ngIf="loading" class="text-center my-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+      </div>
+
+      <div *ngIf="!loading && randomRhums.length === 0" class="text-center my-5">
+        <p>No featured rums available at the moment.</p>
+      </div>
+
+      <div *ngIf="!loading && randomRhums.length > 0" class="row">
+        <div *ngFor="let rhum of randomRhums" class="col-md-4 mb-4">
+          <div class="card rhum-card">
+            <div class="rhum-image">
+              <img [src]="rhum.imageUrl || 'assets/images/default-rum.png'" class="card-img-top" [alt]="rhum.name">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ rhum.name }}</h5>
+              <p class="card-text origin">Origin: {{ rhum.origin }}</p>
+              <p class="card-text type">Type: {{ rhum.type }}</p>
+              <p class="card-text abv">{{ rhum.alcoholPercentage || rhum.abv }}% ABV</p>
+              <p *ngIf="rhum.age" class="card-text age">Age: {{ rhum.age }} years</p>
+              <p class="card-text description">{{ rhum.description || 'No description available' }}</p>
+              <p *ngIf="rhum.price" class="card-text price">${{ rhum.price.toFixed(2) }}</p>
+              <a routerLink="/login" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
-  <div class="col-md-4 mb-4">
-    <div class="card h-100">
-      <div class="card-body text-center">
-        <i class="fas fa-cocktail fa-3x mb-3 text-primary"></i>
-        <h5 class="card-title">Creative Recipes</h5>
-        <p class="card-text">Discover and share innovative rhum cocktail recipes and arrangements.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-md-4 mb-4">
-    <div class="card h-100">
-      <div class="card-body text-center">
-        <i class="fas fa-users fa-3x mb-3 text-primary"></i>
-        <h5 class="card-title">Community</h5>
-        <p class="card-text">Connect with fellow rhum enthusiasts and share your experiences.</p>
-      </div>
+
+  <div class="about-section">
+    <div class="container">
+      <h2 class="section-title">About RhumIA</h2>
+      <p>RhumIA is your ultimate destination for discovering and exploring the world of premium rums. Our platform offers a curated selection of the finest rums from around the globe, complete with detailed information about their origin, production methods, and flavor profiles.</p>
+      <p>Sign up today to access our full collection and start your rum journey!</p>
     </div>
   </div>
 </div>
